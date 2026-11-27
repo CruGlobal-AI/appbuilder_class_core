@@ -17,6 +17,7 @@ import Import_ABMobileViewFormSelectMultiple from "../platform/mobile/ABMobileVi
 import Import_ABMobileViewFormSelectSingle from "../platform/mobile/ABMobileViewFormSelectSingle.js";
 import Import_ABMobileViewFormTextbox from "../platform/mobile/ABMobileViewFormTextbox.js";
 import Import_ABMobileViewLabel from "../platform/mobile/ABMobileViewLabel.js";
+import Import_ABMobileViewGrid from "../platform/mobile/ABMobileViewGrid.js";
 import Import_ABMobileViewList from "../platform/mobile/ABMobileViewList.js";
 import Import_ABMobileViewTimeline from "../platform/mobile/ABMobileViewTimeline.js";
 
@@ -52,6 +53,7 @@ var Views = {};
    Import_ABMobileViewFormSelectSingle,
    Import_ABMobileViewFormTextbox,
    Import_ABMobileViewLabel,
+   Import_ABMobileViewGrid,
    Import_ABMobileViewList,
    Import_ABMobileViewTimeline,
 ].forEach((v) => {
@@ -88,6 +90,11 @@ export default class ABViewManagerCore {
 
       if (values.key == "detailselectivity") {
          values.key = "detailconnect";
+      }
+
+      // early PWA pages saved a mobile grid as "grid"
+      if (values.key == "grid") {
+         values.key = "mobile-grid";
       }
 
       //		if ((values.key) && (Views[values.key])) {
