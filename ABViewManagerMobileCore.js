@@ -30,6 +30,7 @@ var Views = {};
    require("../platform/mobile/ABMobileViewFormSelectSingle"),
    require("../platform/mobile/ABMobileViewFormTextbox"),
    require("../platform/mobile/ABMobileViewLabel"),
+   require("../platform/mobile/ABMobileViewGrid"),
    require("../platform/mobile/ABMobileViewList"),
    require("../platform/mobile/ABMobileViewTimeline"),
 ].forEach((v) => {
@@ -66,6 +67,11 @@ module.exports = class ABViewManagerCore {
 
       if (values.key == "detailselectivity") {
          values.key = "detailconnect";
+      }
+
+      // early PWA pages saved a mobile grid as "grid"
+      if (values.key == "grid") {
+         values.key = "mobile-grid";
       }
 
       //		if ((values.key) && (Views[values.key])) {
